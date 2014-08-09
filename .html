@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div id="map" style="width: 600px; height: 400px"></div>
+  <div id="map" style="width: 700px; height: 500px"></div>
   
   <script
   src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
@@ -25,6 +25,13 @@
             attribution: 'Map data &copy; ' + mapLink,
             maxZoom: 18,
             }).addTo(map);
+            
+            //Add a Marker
+            var marker = L.marker([51.955266, 7.627621]) 
+            .addTo (map)
+            .bindPopup("<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster")
+            .openPopup();
+         
     </script>
 </body>
 </html>
