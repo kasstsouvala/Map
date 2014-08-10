@@ -18,15 +18,16 @@
 
     <script>
         
-        var aphoteke = [
-             ["Apotheke Am Ludgeriplatz", 51.955266, 7.627621],
-             ["Sankt Georg Apotheke", 51.954417, 7.625961],
-             ["Stern Apotheke", 51.956625, 7.626486],
-             ["Markus Apotheke e.K", 51.957650, 7.632280],
-             ["Königs Apotheke", 51.958761, 7.626165],
-             ["Josefs Apotheke", 51.950707, 7.625006],
-             ["Kronen Apotheke", 51.949702, 7.624190],
-             ["DocMorris Apotheke ", 51.950376, 7.621787]
+        var aphoteke 
+        [
+             ["<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster", 51.955266, 7.627621],
+             ["<b>Sankt Georg Apotheke</b><br>Hammer Straße 13 <br>48153 Münster", 51.954417, 7.625961],
+             ["<b>Stern Apotheke</b><br>Ludgeristraße 66 <br>48143 Münster", 51.956625, 7.626486],
+             ["<b>Markus Apotheke e.K</b><br>Windthorststraße 16 <br>48143 Münster", 51.957650, 7.632280],
+             ["<b>Königs Apotheke</b><br>Königsstraße 22 <br>48143 Münster", 51.958761, 7.626165],
+             ["<b>Josefs Apotheke</b><br>Hammer Straße 63 <br>48153 Münster", 51.950707, 7.625006],
+             ["<b>Kronen Apotheke</b><br>Hammer Straße 72 <br>48153 Münster", 51.949702, 7.624190],
+             ["<b>DocMorris Apotheke</b><br>Burgstraße 31 <br>48151 Münster", 51.950376, 7.621787]
              ];
     
         var map = L.map('map').setView([51.955760, 7.626551], 15);
@@ -53,6 +54,23 @@
 				.bindPopup(aphoteke[i][0])
 				.addTo(map);
 		}
+	
+	//polyline: Area of interest	
+	var polyline = L.polyline([
+            [51.962283, 7.603525],
+            [51.964300, 7.631356],
+            [51.941501, 7.636506],
+            [51.940654, 7.596080],
+            [51.962283, 7.603525]
+            ],
+            {
+                color: 'red',
+                weight: 2,
+                opacity: .7,
+                dashArray: '20,15',
+                lineJoin: 'round'
+            }
+            ).addTo(map);
          
     </script>
 </body>
