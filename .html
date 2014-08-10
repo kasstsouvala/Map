@@ -17,20 +17,42 @@
     </script>
 
     <script>
-        var map = L.map('map').setView([51.955760, 7.626551], 17);
+        
+        var aphoteke = [
+             ["Apotheke Am Ludgeriplatz", 51.955266, 7.627621],
+             ["Sankt Georg Apotheke", 51.954417, 7.625961],
+             ["Stern Apotheke", 51.956625, 7.626486],
+             ["Markus Apotheke e.K", 51.957650, 7.632280],
+             ["Königs Apotheke", 51.958761, 7.626165],
+             ["Josefs Apotheke", 51.950707, 7.625006],
+             ["Kronen Apotheke", 51.949702, 7.624190],
+             ["DocMorris Apotheke ", 51.950376, 7.621787]
+             ];
+    
+        var map = L.map('map').setView([51.955760, 7.626551], 15);
         mapLink = 
             '<a href="http://openstreetmap.org">OpenStreetMap</a>';
         L.tileLayer(
             'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'Map data &copy; ' + mapLink,
+            attribution: '&copy; ' + mapLink + 'Contributors',
             maxZoom: 18,
             }).addTo(map);
             
             //Add a Marker
-            var marker = L.marker([51.955266, 7.627621]) 
-            .addTo (map)
-            .bindPopup("<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster")
-            .openPopup();
+            //var marker = L.marker([51.955266, 7.627621]
+            //, {draggable: true}
+            ///, {title: "Apotheke"
+            //, opacity: 0.5} // opacity: ADJUST THE MARKERS TRANSPARENCY
+            //)
+            //.addTo (map)
+            //.bindPopup("<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster")
+            //.openPopup();
+            
+            for (var i = 0; i < aphoteke.length; i++) {
+			marker = new L.marker([aphoteke[i][1],aphoteke[i][2]])
+				.bindPopup(aphoteke[i][0])
+				.addTo(map);
+		}
          
     </script>
 </body>
