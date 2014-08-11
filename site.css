@@ -47,3 +47,26 @@ font-size: 1.2em;
 margin-left: 0;
 margin-bottom: 25px;
 }
+
+h1 {
+	color: #003366;
+	font-family: 'Gravitas One', 'Arial Black', serif;
+	font-weight: normal;
+	font-size: 2.2em;
+	border-bottom: 2px white solid;
+	background: url(images/head-icon.png) no-repeat 10px 10px;
+	padding: 0 0 2px 60px;
+	margin: 0; 
+}
+.pullquote {
+	float: right;
+	clear: right;
+	width: 200px;
+	border: 1px solid black;
+	padding: 10px;
+	font-size: 20px;
+	background-color:rgb(188, 200, 234);
+	margin: 20px 0 10px 10px;
+	font-style: italic;
+	color: rgb(7, 11, 23);
+}
