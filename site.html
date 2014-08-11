@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Map Project</title>
-<link href="http://fonts.googleapis.com/css?family=Gravitas+One" 
-rel="stylesheet">
-<link href="styles.css" rel="stylesheet">
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
+<link href="http://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
 
 </head>
 
@@ -18,10 +18,91 @@ rel="stylesheet">
 <div class="content">
 	<div class="main">
 <h1>The INFO Map</h1>
-  <p class=pullquote> This is an interactive map providing INFO of the Muenster area in Germany. This is the first developed map by me in a try to learn WebSite development. My main source of learning is: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a> and <a href="http://it-ebooks.info/book/363/">Book 2 </a>
+  <p class=pullquote> This is an interactive map providing INFO of the Muenster area in Germany. This is the first developed map by me in a try to learn WebSite development. My main source of learning is: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a> and <a href="http://it-ebooks.info/book/363/">Book 2 </a>. 
   </p>
-  
 </div>
+
+<div id="map" style="width: 700px; height: 500px"></div>
+<script
+  src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
+
+    <script>
+        
+        var aphoteke = new L.LayerGroup();
+             L.marker([51.955266, 7.627621]) 
+             .bindPopup("<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster").addTo(aphoteke),
+             //["<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster", 51.955266, 7.627621],
+             L.marker([51.954417, 7.625961])
+             .bindPopup("<b>Sankt Georg Apotheke</b><br>Hammer Straße 13 <br>48153 Münster").addTo(aphoteke),
+             //["<b>Sankt Georg Apotheke</b><br>Hammer Straße 13 <br>48153 Münster", 51.954417, 7.625961],
+             L.marker([51.956625, 7.626486])
+             .bindPopup(["<b>Stern Apotheke</b><br>Ludgeristraße 66 <br>48143 Münster"]).addTo(aphoteke),
+             //["<b>Stern Apotheke</b><br>Ludgeristraße 66 <br>48143 Münster", 51.956625, 7.626486],
+             L.marker([51.957650, 7.632280])
+             .bindPopup(["<b>Markus Apotheke e.K</b><br>Windthorststraße 16 <br>48143 Münster"]).addTo(aphoteke),
+             //["<b>Markus Apotheke e.K</b><br>Windthorststraße 16 <br>48143 Münster", 51.957650, 7.632280],
+             L.marker([51.958761, 7.626165])
+             .bindPopup(["<b>Königs Apotheke</b><br>Königsstraße 22 <br>48143 Münster"]).addTo(aphoteke),
+             //["<b>Königs Apotheke</b><br>Königsstraße 22 <br>48143 Münster", 51.958761, 7.626165],
+             L.marker([51.950707, 7.625006])
+             .bindPopup(["<b>Josefs Apotheke</b><br>Hammer Straße 63 <br>48153 Münster"]).addTo(aphoteke),
+             //["<b>Josefs Apotheke</b><br>Hammer Straße 63 <br>48153 Münster", 51.950707, 7.625006],
+             L.marker([51.949702, 7.624190])
+             .bindPopup(["<b>Josefs Apotheke</b><br>Hammer Straße 63 <br>48153 Münster"]).addTo(aphoteke),
+             //["<b>Kronen Apotheke</b><br>Hammer Straße 72 <br>48153 Münster", 51.949702, 7.624190],
+             L.marker([51.950376, 7.621787])
+             .bindPopup(["<b>DocMorris Apotheke</b><br>Burgstraße 31 <br>48151 Münster"]).addTo(aphoteke),
+             //["<b>DocMorris Apotheke</b><br>Burgstraße 31 <br>48151 Münster", 51.950376, 7.621787]
+             //polyline: Area of interest   
+         L.polyline([
+                [51.962283, 7.603525],
+                [51.964300, 7.631356],
+                [51.941501, 7.636506],
+                [51.940654, 7.596080],
+                [51.962283, 7.603525]
+                ],
+                {
+                    color: 'red',
+                    weight: 2,
+                    opacity: .7,
+                    dashArray: '20,15',
+                    lineJoin: 'round'
+                }
+                ).addTo(aphoteke);
+    
+       var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
+            thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
+        
+        var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            osmAttrib = '&copy; ' + osmLink + ' Contributors',
+            landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
+            thunAttrib = '&copy; '+osmLink+' Contributors & '+thunLink;
+ 
+        var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
+            landMap = L.tileLayer(landUrl, {attribution: thunAttrib});
+ 
+        var map = L.map('map', {
+                layers: [osmMap] // only add one!
+            })
+            .setView([51.955760, 7.626551], 14);
+ 
+        var baseLayers = {
+            "OSM Mapnik": osmMap,
+            "Landscape": landMap
+        };
+ 
+        var overlays = {
+            "Interesting places": aphoteke
+        };
+ 
+        L.control.layers(baseLayers,overlays).addTo(map);
+ 
+    </script>
+
+
+
+
 <div class="footer">
 <p>JavaScript &amp; jQuery: The first Map, by Me</p>
 </div>
