@@ -6,8 +6,8 @@ background-image: url(images/bg_page.png);
 }
 
 body {
-width: 80%;
-padding: 20px;
+width: 85%;
+padding: 1px;
 margin: 0 auto;
 box-shadow: 10px 10px 10px rgba(0,0,0,.5);
 background-color: #E1EDEB;
@@ -61,7 +61,7 @@ h1 {
 .pullquote {
 	float: right;
 	clear: right;
-	width: 200px;
+	width: 175px;
 	border: 1px solid black;
 	padding: 10px;
 	font-size: 20px;
@@ -69,6 +69,6 @@ h1 {
 	margin: 20px 0 10px 10px;
 	font-style: italic;
 	color: rgb(7, 11, 23);
-	position:absolute;right:120px; top:250px;
+	position:absolute;right:100px; top:215px;
 }
 
