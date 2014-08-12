@@ -69,4 +69,5 @@ h1 {
 	margin: 20px 0 10px 10px;
 	font-style: italic;
 	color: rgb(7, 11, 23);
+	position:absolute;right:165px; top:250px;
 }
