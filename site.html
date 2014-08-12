@@ -7,26 +7,34 @@
 <link href="http://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
 
+<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.draw/leaflet.draw.css"/>
+
 </head>
 
 <body>
 <div class="wrapper">
 <div class="header">
-	<p class="logo">MAP <i>of</i> INFO</p>
-	<p class="logo">Based <i>on</i> <a href="http://leafletjs.com/">Leaflet </a></p>
+    <p class="logo">MAP <i>of</i> INFO</p>
+    <p class="logo">Based <i>on</i> <a href="http://leafletjs.com/">Leaflet </a></p>
 </div>
 <div class="content">
-	<div class="main">
+    <div class="main">
 <h1>The INFO Map</h1>
   <p class=pullquote> This is an interactive map providing INFO of the Muenster area in Germany. This is the first developed map by me in a try to learn WebSite development. My main source of learning is: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a>, <a href="http://it-ebooks.info/book/363/">Book 2 </a> and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a>. 
   </p>
 </div>
 
-<div id="map" style="position:absolute;left:165px; top:270px; width: 1250px; height: 550px"></div>
+<div id="map" style="position:absolute;left:120px; top:270px; width: 890px; height: 330px"></div>
 <script
   src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
     </script>
 
+<!-- Tools on map# -->
+    <script
+        src="http://leaflet.github.io/Leaflet.draw/leaflet.draw.js">
+    </script>
+    
+   
     <script>
         
     var aphoteke = new L.LayerGroup();
@@ -97,9 +105,33 @@
         };
  
         L.control.layers(baseLayers,overlays).addTo(map);
+
+<!-- Tools on map -->
+        mapLink = 
+            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom: 18,
+            }).addTo(map);
+
+        var drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        var drawControl = new L.Control.Draw({
+            edit: {
+                featureGroup: drawnItems
+            }
+        });
+        map.addControl(drawControl);
+
+        map.on('draw:created', function (e) {
+            var type = e.layerType,
+                layer = e.layer;
+            drawnItems.addLayer(layer);
+        });
  
     </script>
-
 
 
 
