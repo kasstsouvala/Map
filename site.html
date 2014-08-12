@@ -60,10 +60,12 @@
              .bindPopup("<b>Josefs Apotheke</b><br>Hammer Straße 63 <br>48153 Münster").addTo(aphoteke),
              //["<b>Kronen Apotheke</b><br>Hammer Straße 72 <br>48153 Münster", 51.949702, 7.624190],
              L.marker([51.950376, 7.621787])
-             .bindPopup("<b>DocMorris Apotheke</b><br>Burgstraße 31 <br>48151 Münster").addTo(aphoteke),
+             .bindPopup("<b>DocMorris Apotheke</b><br>Burgstraße 31 <br>48151 Münster").addTo(aphoteke);
+             /*To include the next pline: delete ; and add , */
+
              //["<b>DocMorris Apotheke</b><br>Burgstraße 31 <br>48151 Münster", 51.950376, 7.621787]
              //polyline: Area of interest     
-         L.polyline([
+/*         L.polyline([
                 [51.962283, 7.603525],
                 [51.964300, 7.631356],
                 [51.941501, 7.636506],
@@ -77,7 +79,20 @@
                     dashArray: '20,15',
                     lineJoin: 'round'
                 }
-                ).addTo(aphoteke);
+                ).addTo(aphoteke);*/
+ var cafe = new L.LayerGroup();
+            L.marker([51.961227, 7.631160]) 
+             .bindPopup("<b>Rossini</b><br>Salzstraße 46<br> 48153 Münster, Germany").addTo(cafe),
+            L.marker([51.957041, 7.626491]) 
+             .bindPopup("<b>Cafe Extrablatt</b><br>Königsstraße 31<br> 48153 Münster, Germany").addTo(cafe),
+            L.marker([51.946924, 7.625633]) 
+             .bindPopup("<b>Tante August Ohg</b><br>Augustastraße 20<br> 48153 Münster, Germany").addTo(cafe),
+             L.marker([51.951394, 7.629066]) 
+             .bindPopup("<b>Cafe´ Lenzig</b><br>Südstraße 41<br> 48153 Münster, Germany").addTo(cafe),
+             L.marker([51.953603, 7.631491]) 
+             .bindPopup("<b>Gleis 22</b><br>Hafenstraße 34<br> 48153 Münster, Germany").addTo(cafe);
+
+
     
        var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
             thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
@@ -99,9 +114,11 @@
             "OSM Mapnik": osmMap,
             "Landscape": landMap
         };
- 
+
+/*Title on the menue*/
         var overlays = {
-            "Interesting places": aphoteke
+            "Aphoteke": aphoteke,
+            "cafe": cafe
         };
  
         L.control.layers(baseLayers,overlays).addTo(map);
