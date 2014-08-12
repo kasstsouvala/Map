@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Map Project</title>
+<!-- logo -->
+<link rel="SHORTCUT ICON" href="image/logo.jpg" type="image/x-icon" />
+
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
 <link href="http://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
@@ -38,6 +41,8 @@
     <script>
         
     var aphoteke = new L.LayerGroup();
+            L.marker([51.961231, 7.606500]) 
+             .bindPopup("<b>Flora Apotheke</b><br>Hittorfstraße 1<br>48151 Münster").addTo(aphoteke),
              L.marker([51.955266, 7.627621]) 
              .bindPopup("<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster").addTo(aphoteke),
              //["<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster", 51.955266, 7.627621],
@@ -81,6 +86,12 @@
                 }
                 ).addTo(aphoteke);*/
  var cafe = new L.LayerGroup();
+             L.marker([51.953009, 7.610882]) 
+             .bindPopup("<b>relax Café - Lounge - Restaurant</b><br>Bismarckallee 47<br> 48153 Münster, Germany").addTo(cafe),
+            L.marker([51.948883, 7.621525]) 
+             .bindPopup("<b>Schnabulenz</b><br>Geiststraße 50<br> 48153 Münster, Germany").addTo(cafe),
+            L.marker([51.951369, 7.628992]) 
+             .bindPopup("<b>Cafe´ Lenzig</b><br>Südstraße 41<br> 48153 Münster, Germany").addTo(cafe),
             L.marker([51.961227, 7.631160]) 
              .bindPopup("<b>Rossini</b><br>Salzstraße 46<br> 48153 Münster, Germany").addTo(cafe),
             L.marker([51.957041, 7.626491]) 
