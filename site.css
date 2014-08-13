@@ -66,11 +66,11 @@ h1 {
 	border: 1px solid black;
 	padding: 10px;
 	font-size: 20px;
-	background-color:rgb(188, 200, 234);
+	background-color:#E1EDEB;
 	margin: 20px 0 10px 10px;
 	font-style: italic;
 	color: rgb(7, 11, 23);
-	position:absolute;right:100px; top:235px;
+	position:absolute;right:100px; top:215px;
 }
 
 .pullquote2 {
