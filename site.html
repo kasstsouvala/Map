@@ -10,7 +10,9 @@
 <link href="http://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
 <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.draw/leaflet.draw.css"/>
-
+<link 
+        rel="stylesheet" 
+        href="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.css"/>
 <!-- Ask for jQuery -->
 <script src="js/jquery-1.6.3.min.js"></script>
 <script type="text/javascript">
@@ -44,6 +46,12 @@ $('span.pq').each(function() {
   </p>
 
 <div id="map" style="position:absolute;left:100px; top:235px; width: 950px; height: 500px">  
+        <script
+        src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
+    <script
+        src="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.js">
+    </script>
     <script type="text/javascript">
         
     var aphoteke = new L.LayerGroup();
@@ -111,6 +119,8 @@ $('span.pq').each(function() {
 
 
     
+  
+    
        var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
             thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
         
@@ -123,9 +133,25 @@ $('span.pq').each(function() {
             landMap = L.tileLayer(landUrl, {attribution: thunAttrib});
  
         var map = L.map('map', {
-                layers: [osmMap] // only add one!
+                layers: [osmMap] // only add one! /*add layer*/
             })
             .setView([51.955760, 7.626551], 14);
+            /*->This adds the research bar:*/
+            mapLink = 
+            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom: 18,
+            }).addTo(map);
+        /*This adds the research bar<-*/
+            
+        var osmGeocoder = new L.Control.OSMGeocoder({
+            collapsed: false,
+            position: 'bottomright',
+            text: 'Find!',
+            });
+        map.addControl(osmGeocoder);
  
         var baseLayers = {
             "OSM Mapnik": osmMap,
@@ -164,6 +190,8 @@ $('span.pq').each(function() {
                 layer = e.layer;
             drawnItems.addLayer(layer);
         });
+
+         
  
     </script>
 </div>
@@ -184,6 +212,6 @@ and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a>. </p
 </div>
 
 <div class="footer">
-<p>JavaScript &amp; jQuery: My first Map &#9786</p>
+<p>JavaScript &amp; jQuery: The first Map, by Me</p>
 </body>
 </html>
