@@ -9,36 +9,37 @@
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
 <link href="http://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
-
 <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.draw/leaflet.draw.css"/>
 
-</head>
+<!-- Ask for jQuery -->
+<script src="js/jquery-1.6.3.min.js"></script>
+<script type="text/javascript">
+$(function() {
+/*alert($('#errors').html());*/
+/*Add your jQuery code here*/
 
-<body>
-<div class="wrapper">
-<div class="header">
-    <p class="logo">MAP <i>of</i> INFO</p>
-    <p class="logo">Based <i>on</i> <a href="http://leafletjs.com/">Leaflet </a></p>
-</div>
-<div class="content">
-    <div class="main">
-<h1>The INFO Map</h1>
-  <p class=pullquote> This is an interactive map providing INFO of the Muenster area in Germany. This is the first developed map by me in a try to learn WebSite development. My main source of learning is: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a>, <a href="http://it-ebooks.info/book/363/">Book 2 </a> and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a>. 
-  </p>
-</div>
-
-<div id="map" style="position:absolute;left:100px; top:235px; width: 950px; height: 380px"></div>
-<script
-  src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+}); // end ready
+</script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
     </script>
 
 <!-- Tools on map# -->
     <script
         src="http://leaflet.github.io/Leaflet.draw/leaflet.draw.js">
     </script>
-    
-   
-    <script>
+</head>
+
+<body>
+<div id="logo">
+<p>MAP <i>of</i> INFO</p>
+<p>Based <i>on</i> <a href="http://leafletjs.com/">Leaflet </a></p>
+<div id="info">
+<h1>The INFO Map</h1>
+  <p class=pullquote> This is an interactive map providing INFO of the Muenster area in Germany. This is the first developed map by me in a try to learn WebSite development. My main source of learning is: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a>, <a href="http://it-ebooks.info/book/363/">Book 2 </a> and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a>. 
+  </p>
+
+<div id="map" style="position:absolute;left:100px; top:235px; width: 950px; height: 380px">  
+    <script type="text/javascript">
         
     var aphoteke = new L.LayerGroup();
             L.marker([51.961231, 7.606500]) 
@@ -160,14 +161,24 @@
         });
  
     </script>
+</div>
 
 
-
+<div id="text" style="position:absolute;bottom:100px; top:650px; width: 950px; height: 380px; left: 40px;" >   
+<h2>What this project is about</h2>
+<p>This is a project of learning WebSite development. The idea is learning in action. 
+Leaflet is a widely-used open source JavaScript library I first used in the Master's program I attend. 
+This is a modern library for mobile-friendly interactive maps and is easy in implementation. 
+</p>
+<p>Wanted to develop knew skills on WebSite development, Leaflet was the first thing I wanted to include in my site. As I refered
+ Leaflet is easy in use, but I was need to learn more in order to develope my site: HTML, CSS and jQuery.
+</p>
+<p>I studied three great books, I recomend to any begginer on WebSite development: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a>, 
+<a href="http://it-ebooks.info/book/363/">Book 2 </a> 
+and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a>. </p>
+</div>
 
 <div class="footer">
 <p>JavaScript &amp; jQuery: The first Map, by Me</p>
-</div>
-</div>
-</div>
 </body>
 </html>
