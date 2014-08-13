@@ -185,11 +185,13 @@ $('span.pq').each(function() {
         });
         map.addControl(drawControl);
 
-        map.on('draw:created', function (e) {
+    /*This doesn't work here: drawing tools*/
+        /*map.on('draw:created', function (e) {
             var type = e.layerType,
                 layer = e.layer;
             drawnItems.addLayer(layer);
-        });
+        });*/
+
 
          
  
