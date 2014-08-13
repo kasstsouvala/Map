@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 html {
-padding-top: 25px;
+padding-top: 15px;
 background-image: url(images/bg_page.png); 
 }
 
@@ -33,7 +33,7 @@ h2 {
 color: #B1967C;
 font-family: 'Gravitas One', 'Arial Black', serif;
 font-weight: normal;
-font-size: 2.2em;
+font-size: 1.8em;
 border-bottom: 2px white solid;
 background: url(images/head-icon.png) no-repeat 10px 10px;
 padding: 0 0 2px 60px;
@@ -61,7 +61,8 @@ h1 {
 .pullquote {
 	float: right;
 	clear: right;
-	width: 175px;
+	width: 140px;
+	height: 480px;
 	border: 1px solid black;
 	padding: 10px;
 	font-size: 20px;
@@ -69,6 +70,36 @@ h1 {
 	margin: 20px 0 10px 10px;
 	font-style: italic;
 	color: rgb(7, 11, 23);
-	position:absolute;right:100px; top:215px;
+	position:absolute;right:100px; top:235px;
 }
 
+.pullquote2 {
+	float: right;
+	clear: right;
+	width: 140px;
+	height: 150px;
+	border: 1px solid black;
+	padding: 10px;
+	font-size: 20px;
+	background-color:rgb(188, 200, 234);
+	margin: 20px 0 10px 10px;
+	font-style: italic;
+	color: rgb(7, 11, 23);
+	position:absolute;right:100px; top:135px;
+}
+
+#banner {
+background: #CC0000;
+height: 300px;
+width: 720px;
+}
+
+.externalLink{
+font-size: 1.1em;
+color: #6A94CC;	
+
+}
+
+.highlight{
+	color: #6A94CC;	
+}
