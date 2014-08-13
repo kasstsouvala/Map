@@ -17,7 +17,12 @@
 $(function() {
 /*alert($('#errors').html());*/
 /*Add your jQuery code here*/
-
+$('span.pq').each(function() {
+  var quote=$(this).clone();
+  quote.removeClass('pq');
+  quote.addClass('pullquote2');
+  $(this).before(quote);
+});
 }); // end ready
 </script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
@@ -38,7 +43,7 @@ $(function() {
   <p class=pullquote> This is an interactive map providing INFO of the Muenster area in Germany. This is the first developed map by me in a try to learn WebSite development. My main source of learning is: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a>, <a href="http://it-ebooks.info/book/363/">Book 2 </a> and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a>. 
   </p>
 
-<div id="map" style="position:absolute;left:100px; top:235px; width: 950px; height: 380px">  
+<div id="map" style="position:absolute;left:100px; top:235px; width: 950px; height: 500px">  
     <script type="text/javascript">
         
     var aphoteke = new L.LayerGroup();
@@ -164,16 +169,16 @@ $(function() {
 </div>
 
 
-<div id="text" style="position:absolute;bottom:100px; top:650px; width: 950px; height: 380px; left: 40px;" >   
+<div id="text" style="position:absolute;bottom:100px; top:750px; width: 950px; height: 380px; left: 40px;" >   
 <h2>What this project is about</h2>
-<p>This is a project of learning WebSite development. The idea is learning in action. 
+<p>This is a project of learnig Web Site development. The idea is learning in action. 
 Leaflet is a widely-used open source JavaScript library I first used in the Master's program I attend. 
 This is a modern library for mobile-friendly interactive maps and is easy in implementation. 
 </p>
-<p>Wanted to develop knew skills on WebSite development, Leaflet was the first thing I wanted to include in my site. As I refered
+<p>Wanted to develop knew skills on Web Site development, Leaflet was the first thing I wanted to include in my site. As I refered
  Leaflet is easy in use, but I was need to learn more in order to develope my site: HTML, CSS and jQuery.
 </p>
-<p>I studied three great books, I recomend to any begginer on WebSite development: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a>, 
+<p>I studed three great books, I recomend to any begginer on Web Site development: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a>, 
 <a href="http://it-ebooks.info/book/363/">Book 2 </a> 
 and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a>. </p>
 </div>
