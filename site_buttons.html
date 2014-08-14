@@ -1,3 +1,4 @@
+<?php  ?>
 <!doctype html>
 <html>
 <head>
@@ -32,28 +33,64 @@
     <script>
     /*LOOK*/
 $(document).ready(function() {
- $('#button1').toggle(function() {
+/*button 1*/ $('#button1').toggle(function() {
         $('#button_text').show();
     },
   function() {
         $('#button_text').hide();
+/*        $('#p').hide();*/
     });
+
   $('#button_text').toggle(function() {   
     }); 
   $('#button1').mouseover(function(){
-    var message = "Press this" ;
+    var message = "Click it" ;
     $(this).val(message);
   });
     $('#button1').mouseout(function(){
-    var message = "Info" ;
+    var message = "Tools" ;
     $(this).val(message);
   });
+
+/*button 2*/
+$('#button2').toggle(function() {
+        $('#button_text2').show();
+    },
+  function() {
+        $('#button_text2').hide();
+/*        $('#p').hide();*/
+    });
+
+  $('#button_text2').toggle(function() {   
+    }); 
+  $('#button2').mouseover(function(){
+    var message = "Click it" ;
+    $(this).val(message);
+  });
+    $('#button2').mouseout(function(){
+    var message = "Books" ;
+    $(this).val(message);
+  });
+
+/*button x info*/
+    $('#x').hover(function() {
+        $('#p').show();
+    }, // end mouseover
+    function() {
+        $('#p').hide();
+    } // end mouseout
+    ); 
+      $('#p').toggle(function() {   
+    }); 
+
  // end toggle
 }); // end ready
 </script>
+
 </head>
 
 <body>
+
 <div id="logo">
 <p>MAP <i>of</i> INFO</p>
 <p>Based <i>on</i> <a href="http://leafletjs.com/">Leaflet </a></p>
@@ -62,98 +99,51 @@ $(document).ready(function() {
 <!-- <div class="footer">
 <p>JavaScript &amp; jQuery: The first Map, by Me</p>
 </div> -->
-  <p class=pullquote> This is an interactive map. Please press the upper right button on the map to find marked points and pop-up to see more info. You can also change the base map pressing the same button. 
-  </p>
+
 
 <!-- Add buttoms -->
 <div id='button'>
 <p>
-    <input name="button" type="button" id="button1" value="Info"> 
-    <input name="button" type="button" id="button2" value="Button 2"> 
-    <input name="button" type="button" id="button3" value="Button 3">
+    <input name="button" type="button" id="button1" value="Tools"> 
+    <input name="button" type="button" id="button2" value="Books"> 
 </p>
 </div>
-<div id='button_text'>Hello button 1</div>
+<div id='button_text'><lu> 
+                            <li>Map: <a href="http://leafletjs.com/">Leaflet</a>
+                            <li>Colors: <a href="http://www.colorhexa.com/f4f4f5">ColorHexa</a>
+                            <li>Symbols: <a href="http://copypastecharacter.com/">Copypaste</a>
+                            </div>
+<div id='button_text2'><lu> 
+                            <li>Book 1: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Css3 </a>
+                            <li>Book2: <a href="http://it-ebooks.info/book/363/">JavaScript & jQuery </a>
+                            <li>Book3: <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Leaflet Tips and Tricks </a>
+                            </div>
+
 <!-- Add spaces -->
 <!-- <p><input name="textfield" type="text" id="textfield"></fieldset> <input name="textfield" type="text" id="textfield"></fieldset> <input name="textfield" type="text" id="textfield"></fieldset>
 </p>
 </div> -->
+<div id='x'> <input name="button" type="button" id="buttonx" value="&#10006 Info"></div>
+<div id='p'> <p id='pull'>This is an interactive map. Please press the upper right button on the map to find marked points and pop-up to see more info. You can also change the base map pressing the same button. </p>
+</div>
 
-<div id="map" style="position:absolute;left:100px; top:265px; width: 950px; height: 450px">  
-        <script
+<div id="map" style="position:absolute;left:100px; top:270px; width: 1150px; height: 450px">  
+    <script
         src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
     </script>
+
     <script
         src="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.js">
     </script>
+
     <script type="text/javascript">
+    <?php include 'planelatlong.php'; ?>
         
-    var aphoteke = new L.LayerGroup();
-            L.marker([51.961231, 7.606500]) 
-             .bindPopup("<b>Flora Apotheke</b><br>Hittorfstraße 1<br>48151 Münster").addTo(aphoteke),
-             L.marker([51.955266, 7.627621]) 
-             .bindPopup("<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster").addTo(aphoteke),
-             //["<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster", 51.955266, 7.627621],
-             L.marker([51.954417, 7.625961])
-             .bindPopup("<b>Sankt Georg Apotheke</b><br>Hammer Straße 13 <br>48153 Münster") .addTo(aphoteke),
-             //["<b>Sankt Georg Apotheke</b><br>Hammer Straße 13 <br>48153 Münster", 51.954417, 7.625961],
-             L.marker([51.956625, 7.626486])
-             .bindPopup("<b>Stern Apotheke</b><br>Ludgeristraße 66 <br>48143 Münster").addTo(aphoteke),
-             //["<b>Stern Apotheke</b><br>Ludgeristraße 66 <br>48143 Münster", 51.956625, 7.626486],
-             L.marker([51.957650, 7.632280])
-             .bindPopup("<b>Markus Apotheke e.K</b><br>Windthorststraße 16 <br>48143 Münster").addTo(aphoteke),
-             //["<b>Markus Apotheke e.K</b><br>Windthorststraße 16 <br>48143 Münster", 51.957650, 7.632280],
-             L.marker([51.958761, 7.626165])
-             .bindPopup("<b>Königs Apotheke</b><br>Königsstraße 22 <br>48143 Münster").addTo(aphoteke),
-             //["<b>Königs Apotheke</b><br>Königsstraße 22 <br>48143 Münster", 51.958761, 7.626165],
-             L.marker([51.950707, 7.625006])
-             .bindPopup("<b>Josefs Apotheke</b><br>Hammer Straße 63 <br>48153 Münster").addTo(aphoteke),
-             //["<b>Josefs Apotheke</b><br>Hammer Straße 63 <br>48153 Münster", 51.950707, 7.625006],
-             L.marker([51.949702, 7.624190])
-             .bindPopup("<b>Josefs Apotheke</b><br>Hammer Straße 63 <br>48153 Münster").addTo(aphoteke),
-             //["<b>Kronen Apotheke</b><br>Hammer Straße 72 <br>48153 Münster", 51.949702, 7.624190],
-             L.marker([51.950376, 7.621787])
-             .bindPopup("<b>DocMorris Apotheke</b><br>Burgstraße 31 <br>48151 Münster").addTo(aphoteke);
-             /*To include the next pline: delete ; and add , */
+     /*variables here or 
+      call fill .js like at the end of this script:
+      var points = L.points(FILE_NAME).addTo(map);
+     */
 
-             //["<b>DocMorris Apotheke</b><br>Burgstraße 31 <br>48151 Münster", 51.950376, 7.621787]
-             //polyline: Area of interest     
-/*         L.polyline([
-                [51.962283, 7.603525],
-                [51.964300, 7.631356],
-                [51.941501, 7.636506],
-                [51.940654, 7.596080],
-                [51.962283, 7.603525]
-                ],
-                {
-                    color: 'red',
-                    weight: 2,
-                    opacity: .7,
-                    dashArray: '20,15',
-                    lineJoin: 'round'
-                }
-                ).addTo(aphoteke);*/
- var cafe = new L.LayerGroup();
-             L.marker([51.953009, 7.610882]) 
-             .bindPopup("<b>relax Café - Lounge - Restaurant</b><br>Bismarckallee 47<br> 48153 Münster, Germany").addTo(cafe),
-            L.marker([51.948883, 7.621525]) 
-             .bindPopup("<b>Schnabulenz</b><br>Geiststraße 50<br> 48153 Münster, Germany").addTo(cafe),
-            L.marker([51.951369, 7.628992]) 
-             .bindPopup("<b>Cafe´ Lenzig</b><br>Südstraße 41<br> 48153 Münster, Germany").addTo(cafe),
-            L.marker([51.961227, 7.631160]) 
-             .bindPopup("<b>Rossini</b><br>Salzstraße 46<br> 48153 Münster, Germany").addTo(cafe),
-            L.marker([51.957041, 7.626491]) 
-             .bindPopup("<b>Cafe Extrablatt</b><br>Königsstraße 31<br> 48153 Münster, Germany").addTo(cafe),
-            L.marker([51.946924, 7.625633]) 
-             .bindPopup("<b>Tante August Ohg</b><br>Augustastraße 20<br> 48153 Münster, Germany").addTo(cafe),
-             L.marker([51.951394, 7.629066]) 
-             .bindPopup("<b>Cafe´ Lenzig</b><br>Südstraße 41<br> 48153 Münster, Germany").addTo(cafe),
-             L.marker([51.953603, 7.631491]) 
-             .bindPopup("<b>Gleis 22</b><br>Hafenstraße 34<br> 48153 Münster, Germany").addTo(cafe);
-
-
-    
-  
     
        var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
             thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
@@ -226,13 +216,12 @@ $(document).ready(function() {
             drawnItems.addLayer(layer);
         });*/
 
-         
- 
+         var points = L.points(dataIn).addTo(map); /*this call data points from file dataIn.js*/
     </script>
 </div>
 
 
-<div id="text" style="position:absolute;bottom:100px; top:750px; width: 950px; height: 380px; left: 40px;" >   
+<div id="text" style="position:absolute;bottom:80px; top:760px; width: 950px; height: 380px; left: 40px;" >   
 <h2>What this project is about</h2>
 <p>This is a project of learnig Web Site development. The idea is learning in action. 
 Leaflet is a widely-used open source JavaScript library I first used in the Master's program I attend. 
@@ -241,9 +230,6 @@ This is a modern library for mobile-friendly interactive maps and is easy in imp
 <p>Wanted to develop knew skills on Web Site development, Leaflet was the first thing I wanted to include in my site. As I refered
  Leaflet is easy in use, but I was need to learn more in order to develope my site: HTML, CSS and jQuery.
 </p>
-<p>I studed four great books, I recomend to any begginer on Web Site development: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a>, 
-<a href="http://it-ebooks.info/book/363/">Book 2 </a> 
-and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a> and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 4 </a>. </p>
 
 </div>
 
