@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
 <link href="http://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet"/>
-<link href="styles.css" rel="stylesheet"/>
+<link href="styles/styles.css" rel="stylesheet"/>
 <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.draw/leaflet.draw.css"/>
 <link 
         rel="stylesheet" 
@@ -16,16 +16,10 @@
 <!-- Ask for jQuery -->
 <script src="js/jquery-1.6.3.min.js"></script>
 <script type="text/javascript">
-$(function() {
+/*$(function() {
 /*alert($('#errors').html());*/
 /*Add your jQuery code here*/
-$('span.pq').each(function() {
-  var quote=$(this).clone();
-  quote.removeClass('pq');
-  quote.addClass('pullquote2');
-  $(this).before(quote);
-});
-}); // end ready
+}); // end ready*/
 </script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
     </script>
@@ -34,6 +28,22 @@ $('span.pq').each(function() {
     <script
         src="http://leaflet.github.io/Leaflet.draw/leaflet.draw.js">
     </script>
+
+    <script>
+    /*LOOK*/
+/*$(document).ready(function() {
+ $('botton').toggle(
+        function() {
+           $(this).next('.answer').slideDown();
+           $(this).addClass('close');
+        },
+        function() {
+           $(this).next('.answer').fadeOut();
+           $(this).removeClass('close');
+      }
+    ); // end toggle
+}); // end ready*/
+</script>
 </head>
 
 <body>
@@ -41,11 +51,25 @@ $('span.pq').each(function() {
 <p>MAP <i>of</i> INFO</p>
 <p>Based <i>on</i> <a href="http://leafletjs.com/">Leaflet </a></p>
 <div id="info">
-<h1>The INFO Map</h1>
+<h1>The INFO Map &#9786</h1>
+<!-- <div class="footer">
+<p>JavaScript &amp; jQuery: The first Map, by Me</p>
+</div> -->
   <p class=pullquote> This is an interactive map providing INFO of the Muenster area in Germany. This is the first developed map by me in a try to learn WebSite development. My main source of learning is: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a>, <a href="http://it-ebooks.info/book/363/">Book 2 </a> and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a>. 
   </p>
 
-<div id="map" style="position:absolute;left:100px; top:235px; width: 950px; height: 500px">  
+<!-- Add buttoms -->
+<div id='button'>
+<p>
+    <input name="button" type="button" id="button" value="A Button"> <input name="button" type="button" id="button" value="A Button"> <input name="button" type="button" id="button" value="A Button">
+</p>
+
+<!-- Add spaces -->
+<p><input name="textfield" type="text" id="textfield"></fieldset> <input name="textfield" type="text" id="textfield"></fieldset> <input name="textfield" type="text" id="textfield"></fieldset>
+</p>
+</div>
+
+<div id="map" style="position:absolute;left:100px; top:265px; width: 950px; height: 450px">  
         <script
         src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
     </script>
@@ -185,13 +209,12 @@ $('span.pq').each(function() {
         });
         map.addControl(drawControl);
 
-    /*This doesn't work here: drawing tools*/
+/*This doesn't work here: drawing tools*/
         /*map.on('draw:created', function (e) {
             var type = e.layerType,
                 layer = e.layer;
             drawnItems.addLayer(layer);
         });*/
-
 
          
  
@@ -210,10 +233,10 @@ This is a modern library for mobile-friendly interactive maps and is easy in imp
 </p>
 <p>I studed four great books, I recomend to any begginer on Web Site development: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a>, 
 <a href="http://it-ebooks.info/book/363/">Book 2 </a> 
-and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a> and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 4</a>. </p>
+and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a> and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 4 </a>. </p>
+
 </div>
 
-<div class="footer">
-<p>JavaScript &amp; jQuery: The first Map, by Me</p>
+
 </body>
 </html>
