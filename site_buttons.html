@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Map Project</title>
+<!-- logo -->
+<link rel="SHORTCUT ICON" href="image/logo.jpg" type="image/x-icon" />
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
+<link href="http://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet"/>
+<link href="styles/styles.css" rel="stylesheet"/>
+<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.draw/leaflet.draw.css"/>
+<link 
+        rel="stylesheet" 
+        href="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.css"/>
+<!-- Ask for jQuery -->
+<script src="js/jquery-1.6.3.min.js"></script>
+<script type="text/javascript">
+/*$(function() {
+/*alert($('#errors').html());*/
+/*Add your jQuery code here*/
+}); // end ready*/
+</script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
+
+<!-- Tools on map# -->
+    <script
+        src="http://leaflet.github.io/Leaflet.draw/leaflet.draw.js">
+    </script>
+
+    <script>
+    /*LOOK*/
+$(document).ready(function() {
+ $('#button1').toggle(function() {
+        $('#button_text').show();
+    },
+  function() {
+        $('#button_text').hide();
+    });
+  $('#button_text').toggle(function() {   
+    }); 
+  $('#button1').mouseover(function(){
+    var message = "Press this" ;
+    $(this).val(message);
+  });
+    $('#button1').mouseout(function(){
+    var message = "Info" ;
+    $(this).val(message);
+  });
+ // end toggle
+}); // end ready
+</script>
+</head>
+
+<body>
+<div id="logo">
+<p>MAP <i>of</i> INFO</p>
+<p>Based <i>on</i> <a href="http://leafletjs.com/">Leaflet </a></p>
+<div id="info">
+<h1>The INFO Map &#9786</h1>
+<!-- <div class="footer">
+<p>JavaScript &amp; jQuery: The first Map, by Me</p>
+</div> -->
+  <p class=pullquote> This is an interactive map. Please press the upper right button on the map to find marked points and pop-up to see more info. You can also change the base map pressing the same button. 
+  </p>
+
+<!-- Add buttoms -->
+<div id='button'>
+<p>
+    <input name="button" type="button" id="button1" value="Info"> 
+    <input name="button" type="button" id="button2" value="Button 2"> 
+    <input name="button" type="button" id="button3" value="Button 3">
+</p>
+</div>
+<div id='button_text'>Hello button 1</div>
+<!-- Add spaces -->
+<!-- <p><input name="textfield" type="text" id="textfield"></fieldset> <input name="textfield" type="text" id="textfield"></fieldset> <input name="textfield" type="text" id="textfield"></fieldset>
+</p>
+</div> -->
+
+<div id="map" style="position:absolute;left:100px; top:265px; width: 950px; height: 450px">  
+        <script
+        src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
+    <script
+        src="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.js">
+    </script>
+    <script type="text/javascript">
+        
+    var aphoteke = new L.LayerGroup();
+            L.marker([51.961231, 7.606500]) 
+             .bindPopup("<b>Flora Apotheke</b><br>Hittorfstraße 1<br>48151 Münster").addTo(aphoteke),
+             L.marker([51.955266, 7.627621]) 
+             .bindPopup("<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster").addTo(aphoteke),
+             //["<b>Apotheke Am Ludgeriplatz</b><br>Ludgeriplatz 3 <br>48151 Münster", 51.955266, 7.627621],
+             L.marker([51.954417, 7.625961])
+             .bindPopup("<b>Sankt Georg Apotheke</b><br>Hammer Straße 13 <br>48153 Münster") .addTo(aphoteke),
+             //["<b>Sankt Georg Apotheke</b><br>Hammer Straße 13 <br>48153 Münster", 51.954417, 7.625961],
+             L.marker([51.956625, 7.626486])
+             .bindPopup("<b>Stern Apotheke</b><br>Ludgeristraße 66 <br>48143 Münster").addTo(aphoteke),
+             //["<b>Stern Apotheke</b><br>Ludgeristraße 66 <br>48143 Münster", 51.956625, 7.626486],
+             L.marker([51.957650, 7.632280])
+             .bindPopup("<b>Markus Apotheke e.K</b><br>Windthorststraße 16 <br>48143 Münster").addTo(aphoteke),
+             //["<b>Markus Apotheke e.K</b><br>Windthorststraße 16 <br>48143 Münster", 51.957650, 7.632280],
+             L.marker([51.958761, 7.626165])
+             .bindPopup("<b>Königs Apotheke</b><br>Königsstraße 22 <br>48143 Münster").addTo(aphoteke),
+             //["<b>Königs Apotheke</b><br>Königsstraße 22 <br>48143 Münster", 51.958761, 7.626165],
+             L.marker([51.950707, 7.625006])
+             .bindPopup("<b>Josefs Apotheke</b><br>Hammer Straße 63 <br>48153 Münster").addTo(aphoteke),
+             //["<b>Josefs Apotheke</b><br>Hammer Straße 63 <br>48153 Münster", 51.950707, 7.625006],
+             L.marker([51.949702, 7.624190])
+             .bindPopup("<b>Josefs Apotheke</b><br>Hammer Straße 63 <br>48153 Münster").addTo(aphoteke),
+             //["<b>Kronen Apotheke</b><br>Hammer Straße 72 <br>48153 Münster", 51.949702, 7.624190],
+             L.marker([51.950376, 7.621787])
+             .bindPopup("<b>DocMorris Apotheke</b><br>Burgstraße 31 <br>48151 Münster").addTo(aphoteke);
+             /*To include the next pline: delete ; and add , */
+
+             //["<b>DocMorris Apotheke</b><br>Burgstraße 31 <br>48151 Münster", 51.950376, 7.621787]
+             //polyline: Area of interest     
+/*         L.polyline([
+                [51.962283, 7.603525],
+                [51.964300, 7.631356],
+                [51.941501, 7.636506],
+                [51.940654, 7.596080],
+                [51.962283, 7.603525]
+                ],
+                {
+                    color: 'red',
+                    weight: 2,
+                    opacity: .7,
+                    dashArray: '20,15',
+                    lineJoin: 'round'
+                }
+                ).addTo(aphoteke);*/
+ var cafe = new L.LayerGroup();
+             L.marker([51.953009, 7.610882]) 
+             .bindPopup("<b>relax Café - Lounge - Restaurant</b><br>Bismarckallee 47<br> 48153 Münster, Germany").addTo(cafe),
+            L.marker([51.948883, 7.621525]) 
+             .bindPopup("<b>Schnabulenz</b><br>Geiststraße 50<br> 48153 Münster, Germany").addTo(cafe),
+            L.marker([51.951369, 7.628992]) 
+             .bindPopup("<b>Cafe´ Lenzig</b><br>Südstraße 41<br> 48153 Münster, Germany").addTo(cafe),
+            L.marker([51.961227, 7.631160]) 
+             .bindPopup("<b>Rossini</b><br>Salzstraße 46<br> 48153 Münster, Germany").addTo(cafe),
+            L.marker([51.957041, 7.626491]) 
+             .bindPopup("<b>Cafe Extrablatt</b><br>Königsstraße 31<br> 48153 Münster, Germany").addTo(cafe),
+            L.marker([51.946924, 7.625633]) 
+             .bindPopup("<b>Tante August Ohg</b><br>Augustastraße 20<br> 48153 Münster, Germany").addTo(cafe),
+             L.marker([51.951394, 7.629066]) 
+             .bindPopup("<b>Cafe´ Lenzig</b><br>Südstraße 41<br> 48153 Münster, Germany").addTo(cafe),
+             L.marker([51.953603, 7.631491]) 
+             .bindPopup("<b>Gleis 22</b><br>Hafenstraße 34<br> 48153 Münster, Germany").addTo(cafe);
+
+
+    
+  
+    
+       var osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>',
+            thunLink = '<a href="http://thunderforest.com/">Thunderforest</a>';
+        
+        var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            osmAttrib = '&copy; ' + osmLink + ' Contributors',
+            landUrl = 'http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',
+            thunAttrib = '&copy; '+osmLink+' Contributors & '+thunLink;
+ 
+        var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib}),
+            landMap = L.tileLayer(landUrl, {attribution: thunAttrib});
+ 
+        var map = L.map('map', {
+                layers: [osmMap] // only add one! /*add layer*/
+            })
+            .setView([51.955760, 7.626551], 14);
+            /*->This adds the research bar:*/
+            mapLink = 
+            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom: 18,
+            }).addTo(map);
+        /*This adds the research bar<-*/
+            
+        var osmGeocoder = new L.Control.OSMGeocoder({
+            collapsed: false,
+            position: 'bottomright',
+            text: 'Find!',
+            });
+        map.addControl(osmGeocoder);
+ 
+        var baseLayers = {
+            "OSM Mapnik": osmMap,
+            "Landscape": landMap
+        };
+
+/*Title on the menue*/
+        var overlays = {
+            "Aphoteke": aphoteke,
+            "cafe": cafe
+        };
+ 
+        L.control.layers(baseLayers,overlays).addTo(map);
+
+<!-- Tools on map -->
+        mapLink = 
+            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom: 18,
+            }).addTo(map);
+
+        var drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        var drawControl = new L.Control.Draw({
+            edit: {
+                featureGroup: drawnItems
+            }
+        });
+        map.addControl(drawControl);
+
+/*This doesn't work here: drawing tools*/
+        /*map.on('draw:created', function (e) {
+            var type = e.layerType,
+                layer = e.layer;
+            drawnItems.addLayer(layer);
+        });*/
+
+         
+ 
+    </script>
+</div>
+
+
+<div id="text" style="position:absolute;bottom:100px; top:750px; width: 950px; height: 380px; left: 40px;" >   
+<h2>What this project is about</h2>
+<p>This is a project of learnig Web Site development. The idea is learning in action. 
+Leaflet is a widely-used open source JavaScript library I first used in the Master's program I attend. 
+This is a modern library for mobile-friendly interactive maps and is easy in implementation. 
+</p>
+<p>Wanted to develop knew skills on Web Site development, Leaflet was the first thing I wanted to include in my site. As I refered
+ Leaflet is easy in use, but I was need to learn more in order to develope my site: HTML, CSS and jQuery.
+</p>
+<p>I studed four great books, I recomend to any begginer on Web Site development: <a href="http://dl.e-book-free.com/2013/07/css3_the_missing_manual_3rd_edition.pdf">Book 1 </a>, 
+<a href="http://it-ebooks.info/book/363/">Book 2 </a> 
+and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 3 </a> and <a href="https://leanpub.com/leaflet-tips-and-tricks/read"> Book 4 </a>. </p>
+
+</div>
+
+
+</body>
+</html>
